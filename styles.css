@@ -13,20 +13,24 @@ body {
   color: #fff;
   font-size: clamp(3rem, 8vw, 8rem);
   font-family: "Ibarra Real Nova", serif;
-  display: block;
+  display: inline-block;
   text-decoration: none;
   padding: clamp(0.25rem, 0.5vw, 1rem) 0rem;
   transition: opacity 400ms ease;
+  /* align-self: flex-start; */
 }
 
 #menu__items {
   margin-inline-start: clamp(4rem, 20vw, 48rem);
   position: relative;
+  display: flex;
   z-index: 2;
+  flex-direction: column;
+  /* align-items: flex-start; */
 }
 
 #menu__items:hover>.menu__item {
-  opacity: 0.3;
+  opacity: 0.2;
 }
 
 #menu__items:hover>.menu__item:hover {
@@ -43,4 +47,26 @@ body {
   z-index: 1;
   left: 0;
   top: 0;
+  transition: opacity 800ms ease, background-size 800ms ease;
+}
+
+#menu__items:hover~.menu__header-pattern {
+  background-size: 11vmin 11vmin;
+  opacity: 0.5;
+}
+
+#menu[data-active-index="0"]>.menu__header-pattern {
+  background-position: 0 -25%;
+}
+
+#menu[data-active-index="1"]>.menu__header-pattern {
+  background-position: 0 -50%;
+}
+
+#menu[data-active-index="2"]>.menu__header-pattern {
+  background-position: 0 -75%;
+}
+
+#menu[data-active-index="3"]>.menu__header-pattern {
+  background-position: 0 -100%;
 }
