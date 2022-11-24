@@ -9,8 +9,9 @@ body {
 }
 
 #menu {
-  height: 100vh;
+  height: 95vh;
   display: flex;
+  box-sizing: border-box;
   align-items: center;
 }
 
