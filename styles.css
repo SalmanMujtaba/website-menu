@@ -1,3 +1,8 @@
+* {
+  overflow-y: none;
+  box-sizing: border-box;
+}
+
 body {
   background-color: rgb(20, 20, 20);
   margin: 0;
@@ -38,16 +43,20 @@ body {
 }
 
 .menu__header-pattern {
-  height: 100vh;
-  width: 100vw;
-  background-image: radial-gradient( rgba(2255, 255, 255, 0.1) 9%, transparent 9%);
+  background-image: radial-gradient( rgba(255, 255, 255, 0.1) 9%, transparent 9%);
   background-position: 0 0;
   background-size: 12vmin 12vmin;
-  position: absolute;
-  z-index: 1;
+  height: 100vh;
   left: 0;
+  position: absolute;
   top: 0;
-  transition: opacity 800ms ease, background-size 800ms ease;
+  transition: opacity 800ms ease, background-size 800ms ease, background-position 800ms ease;
+  width: 100vw;
+  z-index: 1;
+}
+
+#menu>.menu__header-pattern {
+  background-position: 0% calc(-25% * (var(--active-index, 0) + 1));
 }
 
 #menu__items:hover~.menu__header-pattern {
@@ -55,18 +64,16 @@ body {
   opacity: 0.5;
 }
 
-#menu[data-active-index="0"]>.menu__header-pattern {
-  background-position: 0 -25%;
+#menu>#menu-background-image {
+  background-position: center calc(45% + 5% * var(--active-index, 0));
 }
 
-#menu[data-active-index="1"]>.menu__header-pattern {
-  background-position: 0 -50%;
+.credits {
+  color: #fff;
+  padding-block-start: 1.25rem;
+  text-align: center;
 }
 
-#menu[data-active-index="2"]>.menu__header-pattern {
-  background-position: 0 -75%;
-}
-
-#menu[data-active-index="3"]>.menu__header-pattern {
-  background-position: 0 -100%;
+.credits>a {
+  color: #fff;
 }
